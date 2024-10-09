@@ -15,12 +15,12 @@ public class FindLocationsService : FindLocationsContract
         WriteIndented = true
     };
 
-    public override async Task<ObservableCollection<FindLocationsDTO>?> Perform(FindLocationsDTO input)
+    public override async Task<ObservableCollection<FindLocationsDTO>?> Perform()
     {
-        return await ApplyInternalLogic(input);
+        return await ApplyInternalLogic();
     }
 
-    protected override async Task<ObservableCollection<FindLocationsDTO>?> ApplyInternalLogic(FindLocationsDTO input)
+    protected override async Task<ObservableCollection<FindLocationsDTO>?> ApplyInternalLogic()
     {
         ObservableCollection<FindLocationsDTO>? location = [];
 

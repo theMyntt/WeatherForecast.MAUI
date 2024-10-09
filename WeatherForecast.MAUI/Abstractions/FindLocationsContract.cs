@@ -5,6 +5,6 @@ namespace WeatherForecast.MAUI.Abstractions;
 
 public abstract class FindLocationsContract
 {
-    public abstract Task<ObservableCollection<FindLocationsDTO>?> Perform(FindLocationsDTO input);
-    protected abstract Task<ObservableCollection<FindLocationsDTO>?> ApplyInternalLogic(FindLocationsDTO input);
+    public abstract Task<ObservableCollection<FindLocationsDTO>?> Perform();
+    protected abstract Task<ObservableCollection<FindLocationsDTO>?> ApplyInternalLogic();
 }
