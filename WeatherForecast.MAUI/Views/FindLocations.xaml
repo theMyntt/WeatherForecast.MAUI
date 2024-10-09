@@ -4,6 +4,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WeatherForecast.MAUI.Views.FindLocations">
     <ContentPage.Content>
-        
+        <ScrollView>
+            <CollectionView ItemsSource="{Binding Locations}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="Gray" CornerRadius="10" Margin="0,10,0,10">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Nome}" TextColor="Gray" FontAttributes="Bold"/>
+                                <BoxView Color="Gray" HeightRequest="2" HorizontalOptions="Fill"></BoxView>
+                                <Label Text="{Binding Estado}"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
