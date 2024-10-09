@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using System.Text.Json;
 using WeatherForecast.MAUI.Abstractions;
 using WeatherForecast.MAUI.Models;
@@ -14,14 +15,14 @@ public class FindLocationsService : FindLocationsContract
         WriteIndented = true
     };
 
-    public override async Task<IEnumerable<FindLocationsDTO>?> Perform(FindLocationsDTO input)
+    public override async Task<ObservableCollection<FindLocationsDTO>?> Perform(FindLocationsDTO input)
     {
         return await ApplyInternalLogic(input);
     }
 
-    protected override async Task<IEnumerable<FindLocationsDTO>?> ApplyInternalLogic(FindLocationsDTO input)
+    protected override async Task<ObservableCollection<FindLocationsDTO>?> ApplyInternalLogic(FindLocationsDTO input)
     {
-        IEnumerable<FindLocationsDTO>? location = new List<FindLocationsDTO>();
+        ObservableCollection<FindLocationsDTO>? location = [];
 
         Uri uri = new("https://brasilapi.com.br/api/cptec/v1/cidade");
 
@@ -30,7 +31,7 @@ public class FindLocationsService : FindLocationsContract
         if (!response.IsSuccessStatusCode) return location;
 
         var json = await response.Content.ReadAsStringAsync();
-        location = JsonSerializer.Deserialize<IEnumerable<FindLocationsDTO>>(json);
+        location = JsonSerializer.Deserialize<ObservableCollection<FindLocationsDTO>>(json);
 
         return location;
     }
