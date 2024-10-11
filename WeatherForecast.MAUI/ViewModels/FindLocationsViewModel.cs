@@ -10,7 +10,7 @@ namespace WeatherForecast.MAUI.ViewModels;
 public partial class FindLocationsViewModel : ObservableObject
 {
     [ObservableProperty] private ObservableCollection<FindLocationsDTO>? locations;
-    
+
     public ICommand GetLocationsCommand { get; }
 
     private FindLocationsContract _service;
@@ -18,11 +18,11 @@ public partial class FindLocationsViewModel : ObservableObject
     public FindLocationsViewModel(FindLocationsContract service)
     {
         _service = service;
-        GetLocationsCommand = new Command(GetLocations);
-        GetLocations();
+        GetLocationsCommand = new Command(async () => await GetLocations());
+        _ = GetLocations();
     }
 
-    public async void GetLocations()
+    public async Task GetLocations()
     {
         Locations = await _service.Perform();
     }
