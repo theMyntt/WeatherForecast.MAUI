@@ -8,9 +8,9 @@
             <CollectionView ItemsSource="{Binding Locations}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame BorderColor="Gray" CornerRadius="10" Margin="0,10,0,10">
+                        <Frame BorderColor="Gray" CornerRadius="10" Margin="10,10,10,10">
                             <VerticalStackLayout>
-                                <Label Text="{Binding Nome}" TextColor="Gray" FontAttributes="Bold" FontSize="24"/>
+                                <Label Text="{Binding Nome}" TextColor="Gray" FontAttributes="Bold" FontSize="20"/>
                                 <BoxView Color="Gray" HeightRequest="2" HorizontalOptions="Fill"></BoxView>
                                 <Label Text="{Binding Estado}"/>
                             </VerticalStackLayout>
