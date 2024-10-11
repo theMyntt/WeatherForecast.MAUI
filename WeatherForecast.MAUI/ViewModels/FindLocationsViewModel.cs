@@ -13,11 +13,11 @@ public partial class FindLocationsViewModel : ObservableObject
 
     public ICommand GetLocationsCommand { get; }
 
-    private FindLocationsContract _service;
+    private FindLocationsService _service;
 
-    public FindLocationsViewModel(FindLocationsContract service)
+    public FindLocationsViewModel()
     {
-        _service = service;
+        _service = new();
         GetLocationsCommand = new Command(async () => await GetLocations());
         _ = GetLocations();
     }

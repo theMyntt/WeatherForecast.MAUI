@@ -10,9 +10,9 @@ namespace WeatherForecast.MAUI.Views;
 
 public partial class FindLocations : ContentPage
 {
-    public FindLocations(FindLocationsContract service)
+    public FindLocations()
     {
         InitializeComponent();
-        BindingContext = new FindLocationsViewModel(service);
+        BindingContext = new FindLocationsViewModel();
     }
 }
