@@ -12,7 +12,7 @@ public partial class FindLocationsViewModel : ObservableObject
 
     public ICommand GetLocationsCommand { get; }
 
-    private FindLocationsService _service;
+    private readonly FindLocationsService _service;
 
     public FindLocationsViewModel()
     {
@@ -21,8 +21,8 @@ public partial class FindLocationsViewModel : ObservableObject
         _ = GetLocations();
     }
 
-    public async Task GetLocations()
+    private async Task GetLocations()
     {
-        Locations = await _service.Perform();
+        Locations = await _service.PerformFindAll();
     }
 }

@@ -14,12 +14,12 @@ public class FindLocationsService
         WriteIndented = true
     };
 
-    public async Task<ObservableCollection<FindLocationsDTO>?> Perform()
+    public async Task<ObservableCollection<FindLocationsDTO>?> PerformFindAll()
     {
-        return await ApplyInternalLogic();
+        return await ApplyInternalLogicForFindAll();
     }
 
-    private async Task<ObservableCollection<FindLocationsDTO>?> ApplyInternalLogic()
+    private async Task<ObservableCollection<FindLocationsDTO>?> ApplyInternalLogicForFindAll()
     {
         ObservableCollection<FindLocationsDTO>? location = [];
 
