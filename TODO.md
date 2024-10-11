@@ -7,5 +7,5 @@
 	- [ ] - Buscar Condições atuais nas capitais
 	- [ ] - Previsão meteorológica
 
-- [ ] - Features
-	- [ ] - Buscar por cidade na página de FindLocations
+- [X] - Features
+	- [X] - Buscar por cidade na página de FindLocations
