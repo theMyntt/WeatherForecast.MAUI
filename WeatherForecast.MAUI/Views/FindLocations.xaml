@@ -6,12 +6,21 @@
     <ContentPage.Content>
         <ScrollView>
             <VerticalStackLayout>
-                <HorizontalStackLayout>
-                    <Entry Text="{Binding Query}"></Entry>
-                    <Button Command="{Binding GetSpecific}">
-                        <Button.Text>Filtrar</Button.Text>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" /> 
+                        <ColumnDefinition Width="Auto" /> 
+                        <ColumnDefinition Width="Auto" /> 
+                    </Grid.ColumnDefinitions>
+
+                    <Entry Text="{Binding Query}" Grid.Column="0" />
+                    <Button Command="{Binding GetSpecific}" Grid.Column="1" Margin="10,0">
+                        <Button.Text>Buscar</Button.Text>
                     </Button>
-                </HorizontalStackLayout>
+                    <Button Command="{Binding ClearSearch}" Grid.Column="2">
+                        <Button.Text>Limpar Filtros</Button.Text>
+                    </Button>
+                </Grid>
                 <CollectionView ItemsSource="{Binding Locations}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>

@@ -12,6 +12,7 @@ public partial class FindLocationsViewModel : ObservableObject
     [ObservableProperty] private string? query;
     
     public ICommand GetSpecific { get; }
+    public ICommand ClearSearch { get; }
 
     private readonly FindLocationsService _service;
 
@@ -19,6 +20,7 @@ public partial class FindLocationsViewModel : ObservableObject
     {
         _service = new();
         GetSpecific = new Command(async () => await GetSpecificLocation());
+        ClearSearch = new Command(async () => await ClearFilters());
         _ = GetLocations();
     }
 
@@ -30,5 +32,11 @@ public partial class FindLocationsViewModel : ObservableObject
     private async Task GetSpecificLocation()
     {
         Locations = await _service.PerformFindSpecific(Query ?? "");
+    }
+
+    private async Task ClearFilters()
+    {
+        Query = "";
+        Locations = await _service.PerformFindAll();
     }
 }
