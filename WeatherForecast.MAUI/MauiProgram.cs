@@ -1,6 +1,4 @@
 ﻿using Microsoft.Extensions.Logging;
-using WeatherForecast.MAUI.Abstractions;
-using WeatherForecast.MAUI.Services;
 
 namespace WeatherForecast.MAUI;
 

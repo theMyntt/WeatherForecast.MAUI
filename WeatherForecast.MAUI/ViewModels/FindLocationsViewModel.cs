@@ -1,7 +1,6 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
-using WeatherForecast.MAUI.Abstractions;
 using WeatherForecast.MAUI.Models;
 using WeatherForecast.MAUI.Services;
 

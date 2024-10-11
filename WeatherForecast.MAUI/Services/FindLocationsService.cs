@@ -1,26 +1,25 @@
 using System.Collections.ObjectModel;
 using System.Text.Json;
-using WeatherForecast.MAUI.Abstractions;
 using WeatherForecast.MAUI.Models;
 
 namespace WeatherForecast.MAUI.Services;
 
-public class FindLocationsService : FindLocationsContract
+public class FindLocationsService
 {
-    private HttpClient _httpClient = new();
+    private readonly HttpClient _httpClient = new();
 
-    private JsonSerializerOptions _jsonOptions = new JsonSerializerOptions
+    private readonly JsonSerializerOptions _jsonOptions = new JsonSerializerOptions
     {
         PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
         WriteIndented = true
     };
 
-    public override async Task<ObservableCollection<FindLocationsDTO>?> Perform()
+    public async Task<ObservableCollection<FindLocationsDTO>?> Perform()
     {
         return await ApplyInternalLogic();
     }
 
-    protected override async Task<ObservableCollection<FindLocationsDTO>?> ApplyInternalLogic()
+    private async Task<ObservableCollection<FindLocationsDTO>?> ApplyInternalLogic()
     {
         ObservableCollection<FindLocationsDTO>? location = [];
 
