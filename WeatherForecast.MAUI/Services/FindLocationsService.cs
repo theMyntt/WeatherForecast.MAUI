@@ -31,7 +31,7 @@ public class FindLocationsService : FindLocationsContract
         if (!response.IsSuccessStatusCode) return location;
 
         var json = await response.Content.ReadAsStringAsync();
-        location = JsonSerializer.Deserialize<ObservableCollection<FindLocationsDTO>>(json);
+        location = JsonSerializer.Deserialize<ObservableCollection<FindLocationsDTO>>(json, _jsonOptions);
 
         return location;
     }
