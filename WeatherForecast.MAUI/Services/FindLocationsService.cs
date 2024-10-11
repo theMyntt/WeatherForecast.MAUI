@@ -14,9 +14,30 @@ public class FindLocationsService
         WriteIndented = true
     };
 
+    public async Task<ObservableCollection<FindLocationsDTO>?> PerformFindSpecific(string query)
+    {
+        return await ApplyInternalLogicForFindSpecific(query);
+    }
+    
     public async Task<ObservableCollection<FindLocationsDTO>?> PerformFindAll()
     {
         return await ApplyInternalLogicForFindAll();
+    }
+
+    private async Task<ObservableCollection<FindLocationsDTO>?> ApplyInternalLogicForFindSpecific(string query)
+    {
+        ObservableCollection<FindLocationsDTO>? location = [];
+
+        Uri uri = new($"https://brasilapi.com.br/api/cptec/v1/cidade/{query.Trim()}");
+
+        var response = await _httpClient.GetAsync(uri);
+
+        if (!response.IsSuccessStatusCode) return location;
+
+        var json = await response.Content.ReadAsStringAsync();
+        location = JsonSerializer.Deserialize<ObservableCollection<FindLocationsDTO>>(json, _jsonOptions);
+        
+        return location;
     }
 
     private async Task<ObservableCollection<FindLocationsDTO>?> ApplyInternalLogicForFindAll()
