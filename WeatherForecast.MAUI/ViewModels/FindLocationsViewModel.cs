@@ -9,20 +9,26 @@ namespace WeatherForecast.MAUI.ViewModels;
 public partial class FindLocationsViewModel : ObservableObject
 {
     [ObservableProperty] private ObservableCollection<FindLocationsDTO>? locations;
-
-    public ICommand GetLocationsCommand { get; }
+    [ObservableProperty] private string? query;
+    
+    public ICommand GetSpecific { get; }
 
     private readonly FindLocationsService _service;
 
     public FindLocationsViewModel()
     {
         _service = new();
-        GetLocationsCommand = new Command(async () => await GetLocations());
+        GetSpecific = new Command(async () => await GetSpecificLocation());
         _ = GetLocations();
     }
 
     private async Task GetLocations()
     {
         Locations = await _service.PerformFindAll();
+    }
+
+    private async Task GetSpecificLocation()
+    {
+        Locations = await _service.PerformFindSpecific(Query ?? "");
     }
 }
