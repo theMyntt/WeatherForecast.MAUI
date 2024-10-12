@@ -29,6 +29,10 @@
                                     <Label Text="{Binding Nome}" TextColor="Gray" FontAttributes="Bold" FontSize="20"/>
                                     <BoxView Color="Gray" HeightRequest="2" HorizontalOptions="Fill"></BoxView>
                                     <Label Text="{Binding Estado}"/>
+                                    <Button 
+                                        Text="Ver Clima"
+                                        Command="{Binding GoToForecast}"
+                                        CommandParameter="{Binding Id}" />
                                 </VerticalStackLayout>
                             </Frame>
                         </DataTemplate>

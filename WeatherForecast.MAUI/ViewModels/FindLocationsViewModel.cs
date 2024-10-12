@@ -13,6 +13,7 @@ public partial class FindLocationsViewModel : ObservableObject
     
     public ICommand GetSpecific { get; }
     public ICommand ClearSearch { get; }
+    public ICommand GoToForecast { get; }
 
     private readonly FindLocationsService _service;
 
@@ -21,12 +22,18 @@ public partial class FindLocationsViewModel : ObservableObject
         _service = new();
         GetSpecific = new Command(async () => await GetSpecificLocation());
         ClearSearch = new Command(async () => await ClearFilters());
+        GoToForecast = new Command<int>(async (int cityCode) => await NavigateToForecast(cityCode));
         _ = GetLocations();
     }
 
     private async Task GetLocations()
     {
         Locations = await _service.PerformFindAll();
+    }
+
+    private async Task NavigateToForecast(int cityCode)
+    {
+        await Shell.Current.GoToAsync($"Forecast?CityCode={cityCode}");
     }
 
     private async Task GetSpecificLocation()
