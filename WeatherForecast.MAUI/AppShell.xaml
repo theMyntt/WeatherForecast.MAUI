@@ -4,17 +4,21 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:WeatherForecast.MAUI.Views"
-    Shell.FlyoutBehavior="Disabled"
+    Shell.FlyoutBehavior="Flyout"
     Title="WeatherForecast.MAUI">
 
-    <ShellContent 
-        Title="Clima"
-        ContentTemplate="{DataTemplate local:Forecast}"
-        Route="Forecast"/>
-    
-    <ShellContent
-        Title="Localidades"
-        ContentTemplate="{DataTemplate local:FindLocations}"
-        Route="FindLocation" />
+    <FlyoutItem Title="Clima">
+        <ShellContent 
+            Title="Clima"
+            ContentTemplate="{DataTemplate local:Forecast}" 
+            Route="Forecast"/>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Localidades">
+        <ShellContent 
+            Title="Localidades"
+            ContentTemplate="{DataTemplate local:FindLocations}" 
+            Route="FindLocation"/>
+    </FlyoutItem>
 
 </Shell>
