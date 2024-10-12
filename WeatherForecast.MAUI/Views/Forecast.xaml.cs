@@ -9,9 +9,18 @@ namespace WeatherForecast.MAUI.Views;
 
 public partial class Forecast : ContentPage
 {
+    private readonly ForecastViewModel _viewModel;
+    
     public Forecast()
     {
         InitializeComponent();
-        BindingContext = new ForecastViewModel();
+        _viewModel = new();
+        BindingContext = _viewModel;
+    }
+
+    protected override async void OnAppearing()
+    {
+        await _viewModel.GetLocationForecast();
+        base.OnAppearing();
     }
 }
