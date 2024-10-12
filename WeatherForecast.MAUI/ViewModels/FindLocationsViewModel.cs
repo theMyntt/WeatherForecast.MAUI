@@ -31,7 +31,12 @@ public partial class FindLocationsViewModel : ObservableObject
 
     private async Task GetSpecificLocation()
     {
-        Locations = await _service.PerformFindSpecific(Query ?? "");
+        if (string.IsNullOrEmpty(Query))
+        {
+            await GetLocations();
+            return;
+        }
+        Locations = await _service.PerformFindSpecific(Query);
     }
 
     private async Task ClearFilters()
