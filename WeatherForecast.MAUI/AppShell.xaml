@@ -7,6 +7,11 @@
     Shell.FlyoutBehavior="Disabled"
     Title="WeatherForecast.MAUI">
 
+    <ShellContent 
+        Title="Clima"
+        ContentTemplate="{DataTemplate local:Forecast}"
+        Route="Forecast"/>
+    
     <ShellContent
         Title="Localidades"
         ContentTemplate="{DataTemplate local:FindLocations}"

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WeatherForecast.MAUI.Views.Forecast">
+    <ContentPage.Content>
+        <ScrollView>
+            <VerticalStackLayout>
+                <Frame BorderColor="Gray" CornerRadius="10" Margin="10,10,10,10">
+                    <VerticalStackLayout>
+                        <Label Text="{Binding Location.Cidade}" FontSize="20"></Label>
+                        <HorizontalStackLayout>
+                            <Label Text="{Binding Location.Clima[0].Min}" FontAttributes="Bold" FontSize="24"></Label>
+                            <Label Text=" - " FontAttributes="Bold" FontSize="24"></Label>
+                            <Label Text="{Binding Location.Clima[0].Max}" FontAttributes="Bold" FontSize="24"></Label>
+                        </HorizontalStackLayout>
+                        <Label Text="{Binding Location.Estado}" FontAttributes="Italic"></Label>
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
