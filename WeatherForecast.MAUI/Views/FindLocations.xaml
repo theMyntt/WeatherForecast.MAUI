@@ -33,7 +33,8 @@
                                     <Button 
                                         Text="Ver Clima"
                                         Command="{Binding GoToForecast, Source={RelativeSource AncestorType={x:Type local:FindLocationsViewModel}}}"
-                                        CommandParameter="{Binding Id}" />
+                                        CommandParameter="{Binding Id}" 
+                                        Margin="0,10,0,0"/>
                                 </VerticalStackLayout>
                             </Frame>
                         </DataTemplate>
