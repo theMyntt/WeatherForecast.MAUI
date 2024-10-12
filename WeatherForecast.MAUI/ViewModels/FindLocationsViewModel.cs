@@ -33,7 +33,14 @@ public partial class FindLocationsViewModel : ObservableObject
 
     private async void NavigateToForecast(int cityCode)
     {
-        await Shell.Current.GoToAsync($"Forecast?CityCode={cityCode}");
+        try
+        {
+            await Shell.Current.GoToAsync($"///Forecast?CityCode={cityCode}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
     }
 
     private async Task GetSpecificLocation()
