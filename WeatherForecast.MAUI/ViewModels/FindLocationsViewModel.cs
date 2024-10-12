@@ -22,7 +22,7 @@ public partial class FindLocationsViewModel : ObservableObject
         _service = new();
         GetSpecific = new Command(async () => await GetSpecificLocation());
         ClearSearch = new Command(async () => await ClearFilters());
-        GoToForecast = new Command<int>(async (int cityCode) => await NavigateToForecast(cityCode));
+        GoToForecast = new Command<int>(NavigateToForecast);
         _ = GetLocations();
     }
 
@@ -31,7 +31,7 @@ public partial class FindLocationsViewModel : ObservableObject
         Locations = await _service.PerformFindAll();
     }
 
-    private async Task NavigateToForecast(int cityCode)
+    private async void NavigateToForecast(int cityCode)
     {
         await Shell.Current.GoToAsync($"Forecast?CityCode={cityCode}");
     }
