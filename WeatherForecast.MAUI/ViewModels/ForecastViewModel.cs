@@ -4,9 +4,11 @@ using WeatherForecast.MAUI.Services;
 
 namespace WeatherForecast.MAUI.ViewModels;
 
+[QueryProperty("CityCode", "CityCode")]
 public partial class ForecastViewModel : ObservableObject
 {
     [ObservableProperty] private ForecastDTO? _location;
+    [ObservableProperty] private int? _cityCode;
 
     private readonly ForecastService _service = new();
 
@@ -17,6 +19,6 @@ public partial class ForecastViewModel : ObservableObject
 
     private async Task GetLocationForecast()
     {
-        Location = await _service.Perform(244);
+        Location = await _service.Perform(CityCode ?? 244);
     }
 }
