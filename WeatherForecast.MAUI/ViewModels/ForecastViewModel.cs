@@ -17,7 +17,7 @@ public partial class ForecastViewModel : ObservableObject
         _ = GetLocationForecast();
     }
 
-    private async Task GetLocationForecast()
+    public async Task GetLocationForecast()
     {
         Location = await _service.Perform(CityCode ?? 244);
     }
