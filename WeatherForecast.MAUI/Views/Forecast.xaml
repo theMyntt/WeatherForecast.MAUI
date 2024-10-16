@@ -11,6 +11,7 @@
                     <VerticalStackLayout>
                         <Label Text="{Binding Location.Cidade}" FontSize="20"></Label>
                         <Label Text="{Binding Location.Estado}" FontAttributes="Italic"></Label>
+                        <Label Text="{Binding Location.Clima[0].Condicao_desc}" FontSize="18" />
                         <HorizontalStackLayout>
                             <Label Text="Min:" FontAttributes="Bold" FontSize="24" Margin="0,0,10,0"></Label>
                             <Label Text="{Binding Location.Clima[0].Min}" FontAttributes="Bold" FontSize="24"></Label>
