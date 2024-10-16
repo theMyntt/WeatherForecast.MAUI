@@ -7,15 +7,18 @@
     <ContentPage.Content>
         <ScrollView>
             <VerticalStackLayout>
-                <Frame BorderColor="Gray" CornerRadius="10" Margin="10,10,10,10">
+                <Frame Margin="10,10,10,10">
                     <VerticalStackLayout>
                         <Label Text="{Binding Location.Cidade}" FontSize="20"></Label>
+                        <Label Text="{Binding Location.Estado}" FontAttributes="Italic"></Label>
                         <HorizontalStackLayout>
+                            <Label Text="Min:" FontAttributes="Bold" FontSize="24" Margin="0,0,10,0"></Label>
                             <Label Text="{Binding Location.Clima[0].Min}" FontAttributes="Bold" FontSize="24"></Label>
-                            <Label Text=" - " FontAttributes="Bold" FontSize="24"></Label>
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout>
+                            <Label Text="Max: " FontAttributes="Bold" FontSize="24" Margin="0,0,10,0"></Label>
                             <Label Text="{Binding Location.Clima[0].Max}" FontAttributes="Bold" FontSize="24"></Label>
                         </HorizontalStackLayout>
-                        <Label Text="{Binding Location.Estado}" FontAttributes="Italic"></Label>
                     </VerticalStackLayout>
                 </Frame>
             </VerticalStackLayout>
