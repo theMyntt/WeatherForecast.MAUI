@@ -4,7 +4,6 @@ using WeatherForecast.MAUI.Services;
 
 namespace WeatherForecast.MAUI.ViewModels;
 
-[QueryProperty("CityCode", "CityCode")]
 public partial class ForecastViewModel : ObservableObject
 {
     [ObservableProperty] private ForecastDTO? _location;

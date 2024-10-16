@@ -1,16 +1,15 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WeatherForecast.MAUI.ViewModels;
 
 namespace WeatherForecast.MAUI.Views;
 
+[QueryProperty(nameof(CityCode), "CityCode")]
 public partial class Forecast : ContentPage
 {
     private readonly ForecastViewModel _viewModel;
-    
+
+    public string? CityCode { get; set; }
+
     public Forecast()
     {
         InitializeComponent();
@@ -20,6 +19,10 @@ public partial class Forecast : ContentPage
 
     protected override async void OnAppearing()
     {
+        if (CityCode != "" || CityCode != null)
+        {
+            _viewModel.CityCode = int.Parse(CityCode ?? "244");
+        } 
         await _viewModel.GetLocationForecast();
         base.OnAppearing();
     }
